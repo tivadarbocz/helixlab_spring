@@ -19,7 +19,7 @@ public class UserService {
     private EmailService emailService;
 
     Iterable<User> findAll(){
-        emailService.sendMail("sf","fdsfds","fsf");
+
         return userRepository.getEnabledUser(true);
     }
 
@@ -29,8 +29,8 @@ public class UserService {
 
     User createUser(User user){
 
-
-
+        //TODO email küldés
+        emailService.sendMail("sf","fdsfds","fsf");
         user.setPassword(SecurityUtil.base64encode(SecurityUtil.generatePassword(10)));
         return userRepository.saveAndFlush(user);
     }
